@@ -1,0 +1,22 @@
+<!-- <mat-selection-list #stocks [multiple]="false">
+    <mat-list-option #teamDiv class="stocks" *ngFor="let stock of stocks, let i = index">
+        <button type="button" (click)="onSelect(stock)">{{stock}}</button>
+    </mat-list-option>
+</mat-selection-list> -->
+<div #teamDiv class="stocks" *ngFor="let stock of stocks, let i = index">
+    <button routerLink="/detail/{{stock.id}}" appTeamButton
+            type="button">
+    <span class="badge">{{i+1}}.</span>
+      <span class="name">{{stock.name}}</span>
+    </button>
+  </div>
+
+<div *ngIf="selectedStock">
+    <h2>{{selectedStock.name | uppercase}} Details</h2>
+    <h3>Short name: {{selectedStock.shortName}}</h3>
+    <h3>Price: {{selectedStock.shortName}}</h3>
+    <h3>Spread: {{selectedStock.spread}}</h3>
+    <h3>Change: {{selectedStock.change}}</h3>
+    <h3>Total purchased: {{selectedStock.totalPurchased}}</h3>
+    <h3>Description: {{selectedStock.description}}</h3>
+</div>
